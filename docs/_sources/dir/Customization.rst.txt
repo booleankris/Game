@@ -1,0 +1,168 @@
+
+Customization
+=============
+
+You can customize the game by editing *config.json* (production/ test folder) or insert javascript code into intializing code in *index.html*
+
+config.json
+-----------
+
+* General parameters
+
+.. list-table:: 
+   :widths: 30 25 25 50
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Default
+     - Description
+   * - useHelpPanel
+     - boolean
+     - true
+     - Enable or disable help panel
+   * - useCreditPanel
+     - boolean
+     - true
+     - Enable or disable credit panel
+   * - useBackgroundMusic
+     - boolean
+     - true
+     - Enable or disable background music
+   * - boardTextures
+     - array
+     - ["wood1.jpg", ...]
+     - List of textures used as game board materials
+   * - paddingPatterns
+     - array
+     - ["pad1.png", ...]
+     - Padding pattern for image item
+
+
+* String resources for changing text interfaces: 
+    APP_TITLE, APP_INFO, NEW_GAME, HELP, HELP_TEXT, SETTING, CREDIT, CREDIT_TEXT
+
+
+* Level customization: 
+  You can add new level by adding images to "data" folder then edit the config file with level settings.
+  The images should be resized and cropped to 1620x1080 dimension.
+
+.. code-block:: javascript
+ :linenos:
+
+  "data":{
+    "level":{
+      "animals":[
+        {
+          "id":1,
+          "board":"4x6",
+          "path":"data/animals_1.jpg"
+        },
+        {
+          "id":2,
+          "board":"4x6",
+          "path":"data/animals_2.jpg"
+        },
+      ],
+      "fairytale":[
+        {
+          "id":1,
+          "board":"4x6",
+          "path":"data/fairytale_1.jpg"
+        },
+        {
+          "id":2,
+          "board":"4x6",
+          "path":"data/fairytale_2.jpg"
+        },
+        {
+          "id":3,
+          "board":"4x6",
+          "path":"data/fairytale_3.jpg"
+        }
+      ]
+    }
+  }
+
+
+Javascript
+----------
+
+You can also pass an argument object to the game instance to config its behaviour. Inside "index.html" (production folder) :
+
+.. code-block:: javascript
+ :linenos:
+
+  var el = document.querySelector('.rs-bp3d');
+  var bp3d = new BlockPuzzle(el, {
+    bevelScale:0.96,
+    pieceDepth:22,
+    pieceSpecular:0x111111, 
+    pieceEmissive: 0x0a0a0a,
+    pieceColor: 0xffffff,
+    boardThickness:20,
+    boardDepth:16,
+    boardMaxWidth:780,
+    boardMaxHeight:780,
+    fitFactor:0.96,
+    ambientLight:0x333333,
+    lightMovingSpeed:2
+  });
+
+.. list-table:: 
+   :widths: 30 25 25 50
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Default
+     - Description
+   * - bevelScale
+     - Number
+     - 0.96
+     - Bevel scale applied to each puzzle piece
+   * - pieceDepth
+     - Number
+     - 22
+     - Depth of each puzzle piece
+   * - pieceSpecular
+     - Number
+     - 0x111111
+     - Piece specular color
+   * - pieceEmissive
+     - Number
+     - 0x0a0a0a
+     - Piece emissive color
+   * - pieceColor
+     - Number
+     - 0xffffff
+     - Piece color
+   * - boardThickness
+     - Number
+     - 20
+     - Puzzle board thickness
+   * - boardDepth
+     - Number
+     - 16
+     - Puzzle board depth
+   * - boardMaxWidth
+     - Number
+     - 780
+     - Maximum width of puzzle board
+   * - boardMaxHeight
+     - Number
+     - 780
+     - Maximum height of puzzle board
+   * - fitFactor
+     - Number
+     - 0.96
+     - Fit factor applied to each photo
+   * - ambientLight
+     - Number
+     - 0x333333
+     - Ambient color of the scene
+   * - lightMovingSpeed
+     - Number
+     - 2
+     - Light moving speed
+

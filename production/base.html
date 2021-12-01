@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="3d, photo, gallery, advanced, javascript">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/sp3d.prod.min.css">
+    <title>3D Sliding Puzzle</title>
+    <script src="js/three.min.js"></script>
+    <script src="js/anime.min.js"></script>
+    <script src="js/sp3d.min.js"></script>
+  </head>
+
+  <body>
+    <!-- Main -->
+    <div id="wrapper">
+      <!-- Start gallery-->
+      <div class="rs-container">
+        <div class="rs-sp3d">
+
+        </div>
+      </div>
+      <!-- end gallery-->
+    </div>
+    <!-- end main wrapper-->
+    <footer>Designed and developed by <a href="https://raizensoft.com" target="_blank">Raizensoft.com</a></footer>
+    <script type="text/javascript">
+      document.body.onload = function() {
+      
+        "use strict";
+      
+        var el = document.querySelector('.rs-sp3d');
+        var sp3d = new SlidingPuzzle(el, {
+      
+        });
+        window.sp3d = sp3d;
+      }
+    </script>
+  </body>
+</html>
